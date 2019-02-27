@@ -11,9 +11,25 @@
 </head>
 <body>
 
-  <div class="alert alert-primary" role="alert">
-    This is a test project!
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" text center>
+        <div class="form">
+<div class="form-group">
+  <textarea onkeyup="getBodyPart(this)" name ="" id ="bodyParts" cols ="30" rows ="5" placeholder="Face, Hair">Face, Hair</textarea>
+  <textarea onkeyup="getAdjectives(this)" name ="" id ="adjectives" cols ="30" rows ="5" placeholder="Smelly, Stupid">Smelly, Stupid</textarea>
+  <textarea onkeyup="getWords(this)" name ="" id ="words" cols ="30" rows ="5" placeholder="Fly, Monkey">Fly, Monkey</textarea>
+  <button class="btn btn-primary" id="submit">Submit</button>
+  <div class="result" id="result"></div>
+</div>
   </div>
+</div>
+
+    </div>
+
+  </div>
+
+
 
 <script src="./scripts.js"></script>
 </body>
