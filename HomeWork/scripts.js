@@ -4,44 +4,41 @@ const numbers = document.getElementById('numbers');
 const numbers2 = document.getElementById('numbers2');
 const error = document.getElementById('error');
 const error2 = document.getElementById('error2');
-const results = [];
+let results = [];
 function pictureChange()
 {
     document.getElementById('img').src = "img/1.gif";
     setTimeout(function(){
         let a = getRandom();
 document.getElementById('img').src = "img/"+ a +'.png';
-const res = {
-    name :'rv',
-    question:'ve',
-    answer:'no',
-};
-res.name = numbers.value;
-res.question = numbers2.value;
-results.push(res);
-console.log(results);
-        if(a==1){
-            res.answer = 'yes';
-// result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
-for(let i = 0; i < results.length;i++){
-    result.innerHTML = '<div>'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
-}
+   makingObjects(a);    
+},1000);}
+
+
+function makingObjects(a){
+    const res = {
+        name :'rv',
+        question:'ve',
+        answer:'no',
+    };
+    res.name = numbers.value;
+    res.question = numbers2.value;
+    results.push(res);
+    console.log(results);
+    if(a==1){
+        res.answer = 'yes';
+result.innerHTML += '<div id ="i1">'+ results[results.length-1].name+' '+ results[results.length-1].question+' '+results[results.length-1].answer+'</div>';
 }
 if(a==2){
-    res.answer='no';
-    for(let i = 0; i < results.length;i++){
-        result.innerHTML = '<div>'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
-    }
-    // result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
+res.answer='no';
+    result.innerHTML += '<div id ="i1">'+ results[results.length-1].name+' '+ results[results.length-1].question+' '+results[results.length-1].answer+'</div>';
 }
 if(a==3){
-    res.answer='probably';
-    for(let i = 0; i < results.length;i++){
-        result.innerHTML = '<div id="i1">'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
-    }
-    // result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
+res.answer='probably';
+    result.innerHTML += '<div id="i1">'+ results[results.length-1].name+' '+ results[results.length-1].question+' '+results[results.length-1].answer+'</div>';
 }
-},1000);}
+}
+
 
 submit.addEventListener('click', function(){
     if(numbers.value === ''){
