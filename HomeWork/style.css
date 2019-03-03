@@ -71,3 +71,6 @@ body{
   margin-top:20px;
   background-position: center;
 }
+#i1{
+  display: inline;
+}

@@ -4,32 +4,43 @@ const numbers = document.getElementById('numbers');
 const numbers2 = document.getElementById('numbers2');
 const error = document.getElementById('error');
 const error2 = document.getElementById('error2');
-const result2 = document.getElementById('result2');
-const result3 = document.getElementById('result3');
-const resul4 = document.getElementById('result4');
-let arrayResults = [result,result2,result3,resul4];//записую всі result в один масив
+const results = [];
 function pictureChange()
 {
     document.getElementById('img').src = "img/1.gif";
     setTimeout(function(){
         let a = getRandom();
 document.getElementById('img').src = "img/"+ a +'.png';
-let i = 0;
-    for(i; i < arrayResults.length;i++){// цикл для виводу
+const res = {
+    name :'rv',
+    question:'ve',
+    answer:'no',
+};
+res.name = numbers.value;
+res.question = numbers2.value;
+results.push(res);
+console.log(results);
         if(a==1){
-arrayResults[i].innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ ' yes.';
-break;//якщо знайшло значення, один раз записує і виходить з циклу
+            res.answer = 'yes';
+// result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
+for(let i = 0; i < results.length;i++){
+    result.innerHTML = '<div>'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
+}
 }
 if(a==2){
-    arrayResults[i].innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ ' no.';
-    break;
+    res.answer='no';
+    for(let i = 0; i < results.length;i++){
+        result.innerHTML = '<div>'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
+    }
+    // result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
 }
 if(a==3){
-    arrayResults[i].innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ ' probably.';
-    break;
+    res.answer='probably';
+    for(let i = 0; i < results.length;i++){
+        result.innerHTML = '<div id="i1">'+ results[i].name+' '+ results[i].question+' '+results[i].answer+'</div>'
+    }
+    // result.innerHTML='User with name: '+numbers.value+', asked question like: ' + numbers2.value +' and was answered: '+ res.answer;
 }
-}
-i++;//збільшив і на 1, щоб записати ще три result
 },1000);}
 
 submit.addEventListener('click', function(){
@@ -44,6 +55,7 @@ submit.addEventListener('click', function(){
         document.getElementById('img').src = "img/10.png";
     }
     else{
+
         pictureChange();
 }});
 
